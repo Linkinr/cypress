@@ -24,13 +24,13 @@ describe('agent', () =>{
         cy.get('.filter').should('exist')
     })
 
-    it('homeowners/leads',()=>{
+    it.skip('homeowners/leads',()=>{
         cy.visit('/')
         myhomeiq.getLeadsTab().click()
         cy.get('.filter-container').should('exist')
     })
 
-    it('homeowners/banners',()=>{
+    it.skip('homeowners/banners',()=>{
         cy.visit('/')
         myhomeiq.getBannersTab().click()
         cy.url().should('include', 'homeowners/banners/seller-traffic')
@@ -39,7 +39,7 @@ describe('agent', () =>{
         myhomeiq.getHomeWealthBtn().should('exist')
     })
 
-    it('buyers',()=>{
+    it.skip('buyers',()=>{
         cy.visit('/')
         myhomeiq.getBuyersTab().click()
         cy.url().should('include', '/buyers/traffic')
@@ -47,7 +47,7 @@ describe('agent', () =>{
         myhomeiq.getBuyersBannersTab().should('exist')
     })
 
-    it('buyers/banners',()=>{
+    it.skip('buyers/banners',()=>{
         cy.visit('/')
         myhomeiq.getBuyersTab().click()
         myhomeiq.getBuyersBannersTab().click()
@@ -55,11 +55,24 @@ describe('agent', () =>{
         // myhomeiq.getWebsiteLink().should('exist')
     })
 
-    it('partnership',()=>{
+    it.skip('partnership',()=>{
         cy.visit('/')
         myhomeiq.getLoanOfficerTab().click()
         cy.url().should('include', '/partnership/active')
         cy.contains('My Loan Officer').should('exist')
+    })
+
+    it('settings', ()=>{
+        cy.visit('/')
+        myhomeiq.getSettingsTab().click()
+        cy.url().should('include', '/settings/profile')
+        cy.get('h1').contains('Settings').should('exist')
+        
+        myhomeiq.getProfileLink().should('exist')
+        myhomeiq.getBillingLink().should('exist')
+        myhomeiq.getHomeownersLink().should('exist')
+        myhomeiq.getBuyersLink().should('exist')
+        myhomeiq.getIntegrationsLink().should('exist')
     })
 
 

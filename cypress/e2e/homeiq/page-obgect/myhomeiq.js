@@ -15,6 +15,12 @@ export default class MyHomeIqPage {
         this.createWebsiteLinkBtn='Get website link'
         this.createHomeValueBtn='a[href="/homeowners/banners/seller-traffic"]'
         this.createHomeWealthBtn='a[href="/homeowners/banners/wealth"]'
+        this.createSettingsTab='a[href="/settings"]'
+        this.createProfileLink='Profile'
+        this.createBillingLink='Billing'
+        this.createHomeownersLink='Homeowners'
+        this.createBuyersLink='Buyers'
+        this.createIntegrationsLink='Integrations'
     }
 
     getReportTab (){
@@ -79,5 +85,30 @@ export default class MyHomeIqPage {
 
     getLoanOfficerTab (){
         return cy.get(this.createAgentsTab)
+    }
+
+    //Settings
+    getSettingsTab (){
+        return cy.get(this.createSettingsTab)
+    }
+
+    getProfileLink (){
+        return cy.contains(this.createProfileLink)
+    }
+
+    getBillingLink (){
+        return cy.contains(this.createBillingLink)
+    }
+
+    getHomeownersLink (){
+        return cy.contains(this.createHomeownersLink)
+    }
+
+    getBuyersLink (){
+        return cy.contains(this.createHomeownersLink)
+    }
+
+    getIntegrationsLink (){
+        return cy.contains(this.createIntegrationsLink)
     }
 }
